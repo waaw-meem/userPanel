@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" href="./../css/main.css">
+    <link rel="stylesheet" href="./../css/form.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header_nav">
+            <ul class="header_nav-ul">
+                <li><a href="/" class="list_item">Home</a></li>
+                <li><a href="/add-products" class="list_item">Add Product</a></li>
+                <li class="active"><a href="/add-users" class="list_item">Add User</a></li>            
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>User Form</h2> <br> <form action='/users' method='POST'>
+            <div class="form-control">
+                <label for="uname">Name</label>
+                <input type="text" name="uname" id="uname">
+            </div>
+            <button>Submit</button>
+        </form>
+    </main>
+</body>
+</html>
