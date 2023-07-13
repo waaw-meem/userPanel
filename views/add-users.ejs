@@ -5,10 +5,23 @@
     <%- include('includes/navigation.ejs') %>
 
     <main>
-        <h2>User Form</h2> <br> <form action='/users' method='POST'>
+        <h2>User Form</h2> <br> 
+        <form action='/users' method='POST'>
             <div class="form-control">
                 <label for="uname">Name</label>
                 <input type="text" name="uname" id="uname">
+            </div>
+            <div class="form-control">
+                <label for="designation">Designation</label>
+                <input type="text" name="designation" id="designation">
+            </div>
+            <div class="form-control">
+                <label for="status">Status</label>
+                <input type="text" name="status" id="status">
+            </div>
+            <div class="form-control">
+                <label for="basic">Basic Salary</label>
+                <input type="number" name="basic" id="basic">
             </div>
             <button>Submit</button>
         </form>

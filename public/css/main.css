@@ -60,6 +60,11 @@ a:active{
 }
 
 /* Main styles */
+
+section{
+    padding: 30px 0;
+}
+
 main {
     margin-top: 20px;
     text-align: center;
@@ -70,8 +75,11 @@ h1 {
     margin-bottom: 10px;
 }
 
+article h1 {
+    text-align: left;
+}
 
-.user_grid-container {
+.user_grid-container,.prod_grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     grid-gap: 20px;
@@ -79,7 +87,7 @@ h1 {
 
 img.user_avatar {border-radius: 50%;width: 100px;height: 100px;}
 
-.user_card {
+.user_card,.prod_card {
     background-color: #f1f1f1;
     border-radius: 5px;
     box-shadow: 0 0 10px #0003;
@@ -89,19 +97,29 @@ img.user_avatar {border-radius: 50%;width: 100px;height: 100px;}
     grid-gap: 20px;
 }
 
-.user_details span {
+.user_details span,.prod_details span{
     display: block;
 }
 
-.user_name {
+.user_name,.prod_name {
     font-size: 22px;
 }
 
-.user_status {
+.user_status,.prod_status {
     text-decoration: underline;
 }
 
-.user_card button {
+.prod_price span{
+    text-align: left;
+}
+
+.user_card button,.prod_card button {
     padding: 8px;
     border-radius: 2px;
+    transition: all .75s;
+}
+
+.user_card button:hover,.prod_card button:hover {
+    background: #333;
+    color: #fff;
 }

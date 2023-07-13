@@ -1,36 +1,17 @@
 const express = require('express')
-const path = require('path')
-const rootDir = require('../util/path')
+// const path = require('path')
+// const rootDir = require('../util/path')
+
+const adminController = require("../controllers/product")
 
 const router = express.Router();
 
+router.get('/add-users',adminController.getAddUsers)
 
-router.get('/add-users',(req,res,next) => {
-    console.log("First Middleware")
-    // res.sendFile(path.join(rootDir, 'views', 'add-users.html'))
-    res.render('add-users',{
-        pageTitle:'Add Users',
-        path:'/admin/add-users'
-    })
-})
+router.post('/add-users',adminController.postAddUsers)
 
-router.get('/',(req,res,next) => {
-    console.log("Second Middleware")
-    res.send("This is the Home Page")
-})
+router.get('/add-products',adminController.getAddProducts)
 
-router.get('/add-products',(req,res,next) => {
-    console.log("First Middleware")
-    // res.sendFile(path.join(rootDir, 'views', 'add-products.html'))
-    res.render('add-products',{
-        pageTitle:'Add Products',
-        path:'/admin/add-products',
-    })
-})
-
-router.post('/product',(req,res,next) => {
-    console.log(req.body)
-    res.redirect('/')
-})
+router.post('/add-products',adminController.postAddProducts)
 
 module.exports = router;
