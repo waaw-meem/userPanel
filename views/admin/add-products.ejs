@@ -1,8 +1,8 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="./../css/form.css">
 </head>
 <body>
-    <%- include('includes/navigation.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
 
     <main>
         <h2>Product Form</h2> <br>
@@ -20,10 +20,10 @@
             <input type="number" name="price" id="price">
         </div>
         <div class="form-control">
-            <label for="description">Title</label>
+            <label for="description">Description</label>
             <textarea name="description" id="description" rows="5"></textarea>
         </div>
         <button>Submit</button>
     </form>
     </main>
-    <%- include('includes/end.ejs') %>
+    <%- include('../includes/end.ejs') %>

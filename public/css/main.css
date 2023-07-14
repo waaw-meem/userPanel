@@ -99,6 +99,7 @@ img.user_avatar {border-radius: 50%;width: 100px;height: 100px;}
 
 .user_details span,.prod_details span{
     display: block;
+    overflow-wrap: break-word;
 }
 
 .user_name,.prod_name {
@@ -122,4 +123,8 @@ img.user_avatar {border-radius: 50%;width: 100px;height: 100px;}
 .user_card button:hover,.prod_card button:hover {
     background: #333;
     color: #fff;
+}
+
+img.prod_avatar {
+    width: 100%;
 }
