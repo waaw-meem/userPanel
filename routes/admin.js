@@ -18,11 +18,11 @@ router.get('/add-products',adminController.getAddProducts)
 // PRODUCTS => POST
 router.post('/add-products',adminController.postAddProducts)
 
+// Edit => GET
+router.get('/edit-product/:productId',adminController.getEditProducts)
+
 // Home => GET
 router.get('/admin/products',adminController.getIndexPage)
-
-
-
 
 
 module.exports = router;

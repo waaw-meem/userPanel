@@ -20,7 +20,7 @@
                             <div class="prod_price">
                                 <span>$<%= product.price %></span>
                             </div>
-                            <button>See Details</button>
+                            <%- include('../includes/add-to-cart.ejs',{product:product}) %>
                         </div>
                     <% } %>    
                 </div>

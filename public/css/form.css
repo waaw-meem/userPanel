@@ -77,3 +77,12 @@ button {
 button:hover {
     background-color: #555;
 }
+
+.card_action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 30px;
+}
+
+

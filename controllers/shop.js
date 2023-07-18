@@ -1,4 +1,29 @@
 const Product = require("../models/product")
+const Cart = require("../models/cart")
+
+// Product User List
+exports.getUserProductList = (req,res,next) => {
+  Product.fetchAll(products => {
+    res.render('shop/product-list',{
+        prods:products,
+        pageTitle:'User Products',
+        path:'/products-list',
+    })
+})
+}
+
+// Get single Product
+exports.getSingleProduct = (req,res,next) => {
+  const prodID = req.params.productId;
+  Product.findByID(prodID,product => {
+    res.render('shop/product-detail',{
+      product:product,
+      pageTitle:'User Products',
+      path:'/products-list',
+  })
+  })
+}
+
 
 // Cart Page
 exports.getCart = (req,res,next) => {
@@ -6,6 +31,15 @@ exports.getCart = (req,res,next) => {
         path: '/cart',
         pageTitle: 'Your Cart'
       });
+}
+
+
+exports.postCart = (req,res,next) => {
+  const prodID = req.body.productId;
+  Product.findByID(prodID, product => {
+    Cart.addProduct(prodID,product.price)
+  })
+  res.redirect('/cart')
 }
 
 // Order Page
@@ -22,17 +56,6 @@ exports.getCheckout = (req,res,next) => {
         path: '/checkout',
         pageTitle: 'Your Checkout'
       });
-}
-
-// Product User List
-exports.getUserProductList = (req,res,next) => {
-  Product.fetchAll(products => {
-    res.render('shop/product-list',{
-        prods:products,
-        pageTitle:'User Products',
-        path:'/product-list',
-    })
-})
 }
 
 // ADMIN LIST PRODUCTS

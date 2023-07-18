@@ -14,15 +14,6 @@ exports.postAddUsers = (req,res,next) => {
     res.send("This is the Home Page")
 }
 
-// Get Add Products
-exports.getAddProducts = (req,res,next) => {
-    // res.sendFile(path.join(rootDir, 'views', 'add-products.html'))
-    res.render('admin/add-products',{
-        pageTitle:'Add Products',
-        path:'/admin/add-products',
-    })
-}
-
 // POST ADD PRODUCT
 exports.postAddProducts = (req,res,next) => {
     // fs.writeFileSync('message.txt',productsList)
@@ -34,6 +25,26 @@ exports.postAddProducts = (req,res,next) => {
     const product = new Product(title,imageUrl,price,description);
     product.save()
     res.redirect('/')
+}
+
+// Get Add Products
+exports.getAddProducts = (req,res,next) => {
+    // res.sendFile(path.join(rootDir, 'views', 'add-products.html'))
+    res.render('admin/edit-product',{
+        pageTitle:'Add Products',
+        path:'/admin/add-products',
+    })
+}
+
+exports.getEditProducts = (req,res,next) => {
+    const prodId = req.params.productId
+    Product.findByID(prodId,product => {
+        res.render('admin/edit-product',{
+            pageTitle:'Add Products',
+            path:'/admin/add-products',
+            product:product
+        })
+    })
 }
 
 // Home Page
