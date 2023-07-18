@@ -12,6 +12,9 @@ router.get('/add-users',adminController.getAddUsers)
 // User => POST
 router.post('/add-users',adminController.postAddUsers)
 
+// Product List (admin) => GET
+router.get('/admin-products', adminController.getAdminProductList);
+
 // PRODUCTS => GET
 router.get('/add-products',adminController.getAddProducts)
 
@@ -22,7 +25,7 @@ router.post('/add-products',adminController.postAddProducts)
 router.get('/edit-product/:productId',adminController.getEditProducts)
 
 // Home => GET
-router.get('/admin/products',adminController.getIndexPage)
+router.get('/admin/add-products',adminController.getIndexPage)
 
 
 module.exports = router;

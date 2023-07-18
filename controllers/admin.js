@@ -2,7 +2,6 @@ const Product = require("../models/product")
 
 // Add User Page Form
 exports.getAddUsers = (req,res,next) => {
-    // res.sendFile(path.join(rootDir, 'views', 'add-users.html'))
     res.render('admin/add-users',{
         pageTitle:'Add Users',
         path:'/admin/add-users'
@@ -33,21 +32,43 @@ exports.getAddProducts = (req,res,next) => {
     res.render('admin/edit-product',{
         pageTitle:'Add Products',
         path:'/admin/add-products',
+        editing:false
     })
 }
 
 exports.getEditProducts = (req,res,next) => {
-    const prodId = req.params.productId
-    Product.findByID(prodId,product => {
-        res.render('admin/edit-product',{
-            pageTitle:'Add Products',
-            path:'/admin/add-products',
-            product:product
-        })
-    })
+    const editMode = req.query.edit;
+    if (!editMode) {
+      return res.redirect('/');
+    }
+    const prodId = req.params.productId;
+    Product.findByID(prodId, product => {
+      if (!product) {
+        return res.redirect('/');
+      }
+      res.render('admin/edit-product', {
+        pageTitle: 'Edit Product',
+        path: '/admin/edit-product',
+        editing: editMode,
+        product: product
+      });
+    });
 }
 
-// Home Page
+
+// ADMIN PRODUCT LIST
+exports.getAdminProductList = (req,res,next) => {
+    Product.fetchAll(products => {
+              res.render('admin/admin-list', {
+                  path: '/admin/admin-products',
+                  pageTitle: 'Admin List',
+                  prods:products,
+                });
+          })
+  }
+
+
+// HOME PAGE
 exports.getIndexPage = (req,res,next) => {
     // res.sendFile(path.join(__dirname, '../', 'views', 'index.html'))
     Product.fetchAll(products => {

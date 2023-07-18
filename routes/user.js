@@ -9,7 +9,6 @@ const adminController = require("../controllers/admin")
 router.get('/',adminController.getIndexPage)
 
 
-
 // Product List (User) => GET
 router.get('/products-list', shopController.getUserProductList);
 
@@ -27,8 +26,5 @@ router.get('/order', shopController.getOrder);
 
 // CHECKOUT => GET
 router.get('/checkout', shopController.getCheckout);
-
-// Product List (admin) => GET
-router.get('/admin/admin-product', shopController.getAdminProductList);
 
 module.exports = router;

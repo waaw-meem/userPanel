@@ -57,11 +57,3 @@ exports.getCheckout = (req,res,next) => {
         pageTitle: 'Your Checkout'
       });
 }
-
-// ADMIN LIST PRODUCTS
-exports.getAdminProductList = (req,res,next) => {
-    res.render('admin/admin-list', {
-        path: '/admin/admin-product',
-        pageTitle: 'Admin List'
-      });
-}

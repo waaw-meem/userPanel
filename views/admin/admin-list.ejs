@@ -1,8 +1,41 @@
 <%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="./../css/form.css">
 </head>
 <body>
     <%- include('../includes/navigation.ejs') %>
     <main>
-        <h1>Admin List Page</h1>
+        <section>
+            <article>
+                <h1>Product List</h1>
+                <% if( prods.length > 0 ) { %>
+                 <div class="prod_grid-container">
+                    <% for(let product of prods) { %>
+                        <div class="prod_card">
+                            <div class="prod_avatar">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="prod_avatar">
+                            </div>
+                            <div class="prod_details">
+                                <span class="prod_name"><%= product.title %></span>
+                                <span class="prod_description"><%= product.description %></span>
+                            </div>
+                            <div class="prod_price">
+                                <span>$<%= product.price %></span>
+                            </div>
+                            <div class="card__actions">
+                                <a href="/admin/edit-product/<%= product.id %>?edit=true" class="btn">Edit</a>
+                                <form action="/admin/delete-product" method="POST">
+                                    <input type="hidden" value="<%= product.id %>" name="productId">
+                                    <button class="btn" type="submit">Delete</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    <% } %>    
+                </div>
+                <% } else { %>
+                    <h1>Page Not Found!!!</h1>
+                <% } %>    
+               </article>
+         </section>
     </main>
 <%- include('../includes/end.ejs') %>
