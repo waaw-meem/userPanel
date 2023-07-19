@@ -24,6 +24,12 @@ router.post('/add-products',adminController.postAddProducts)
 // Edit => GET
 router.get('/edit-product/:productId',adminController.getEditProducts)
 
+// Edit => POST
+router.post('/edit-product',adminController.postEditProduct)
+
+// DELETE => POST
+router.post('/delete-product',adminController.postDeleteProduct)
+
 // Home => GET
 router.get('/admin/add-products',adminController.getIndexPage)
 
